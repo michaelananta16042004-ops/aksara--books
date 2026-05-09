@@ -1,0 +1,155 @@
+.page {
+  min-height: calc(100vh - 68px);
+}
+
+.header {
+  background: linear-gradient(135deg, var(--warm-white) 0%, var(--blush-light) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 24px 40px;
+}
+
+.headerContent {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--brown-light);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--brown-light);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sortWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.sortLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--brown-light);
+}
+
+.sortSelect {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: white;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.sortSelect:focus {
+  border-color: var(--amber);
+}
+
+.resultInfo {
+  font-size: 14px;
+  color: var(--brown-light);
+}
+
+.resultInfo strong {
+  color: var(--brown);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  gap: 12px;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 56px;
+}
+
+.empty h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.empty p {
+  font-size: 15px;
+  color: var(--brown-light);
+}
+
+.resetBtn {
+  margin-top: 8px;
+  padding: 10px 24px;
+  background: var(--brown);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+
+.resetBtn:hover {
+  background: var(--ink);
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

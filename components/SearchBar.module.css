@@ -1,0 +1,55 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 480px;
+}
+
+.icon {
+  position: absolute;
+  left: 16px;
+  color: var(--brown-light);
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 48px 14px 48px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  background: white;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input::placeholder {
+  color: var(--brown-light);
+  opacity: 0.6;
+}
+
+.input:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 4px rgba(212, 124, 15, 0.12);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--brown-light);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: color var(--transition);
+}
+
+.clearBtn:hover {
+  color: var(--brown);
+}

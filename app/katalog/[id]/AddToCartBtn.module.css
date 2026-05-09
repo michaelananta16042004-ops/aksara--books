@@ -1,0 +1,23 @@
+.btn {
+  padding: 16px 32px;
+  background: var(--brown);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition), transform 0.2s;
+  width: 100%;
+  max-width: 320px;
+}
+
+.btn:hover {
+  background: var(--ink);
+  transform: translateY(-2px);
+}
+
+.btn.added {
+  background: #4a9e4a;
+}
