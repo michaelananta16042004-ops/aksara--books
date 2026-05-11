@@ -1,14 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const [session, setSession] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -25,6 +29,37 @@ export default function Navbar() {
     window.addEventListener("cartUpdated", updateCart);
     return () => window.removeEventListener("cartUpdated", updateCart);
   }, []);
+
+  useEffect(() => {
+    const updateSession = () => {
+      const s = localStorage.getItem("aksara_session");
+      setSession(s ? JSON.parse(s) : null);
+    };
+    updateSession();
+    window.addEventListener("sessionUpdated", updateSession);
+    return () => window.removeEventListener("sessionUpdated", updateSession);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("aksara_session");
+    window.dispatchEvent(new Event("sessionUpdated"));
+    setDropdownOpen(false);
+    router.push("/");
+  };
+
+  const getInitials = (name) => {
+    return name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2);
+  };
 
   const navLinks = [
     { href: "/", label: "Beranda" },
@@ -64,11 +99,35 @@ export default function Navbar() {
             {cartCount > 0 && <span className={styles.badge}>{cartCount}</span>}
           </Link>
 
-          <button
-            className={styles.hamburger}
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
+          {session ? (
+            <div className={styles.userMenu} ref={dropdownRef}>
+              <button className={styles.avatarBtn} onClick={() => setDropdownOpen(!dropdownOpen)}>
+                <span className={styles.avatar}>{getInitials(session.name)}</span>
+                <span className={styles.userName}>{session.name.split(" ")[0]}</span>
+                <span className={styles.chevron}>{dropdownOpen ? "▲" : "▼"}</span>
+              </button>
+              {dropdownOpen && (
+                <div className={styles.dropdown}>
+                  <div className={styles.dropdownHeader}>
+                    <p className={styles.dropName}>{session.name}</p>
+                    <p className={styles.dropEmail}>{session.email}</p>
+                  </div>
+                  <div className={styles.dropDivider}></div>
+                  <Link href="/keranjang" className={styles.dropItem} onClick={() => setDropdownOpen(false)}>🛒 Keranjang Saya</Link>
+                  <Link href="/katalog" className={styles.dropItem} onClick={() => setDropdownOpen(false)}>📚 Katalog Buku</Link>
+                  <div className={styles.dropDivider}></div>
+                  <button className={styles.dropLogout} onClick={handleLogout}>🚪 Keluar</button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className={styles.authLinks}>
+              <Link href="/login" className={styles.loginBtn}>Masuk</Link>
+              <Link href="/register" className={styles.registerBtn}>Daftar</Link>
+            </div>
+          )}
+
+          <button className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
             <span className={menuOpen ? styles.barOpen : ""}></span>
             <span className={menuOpen ? styles.barOpen : ""}></span>
             <span className={menuOpen ? styles.barOpen : ""}></span>

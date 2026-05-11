@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
+import GuestBanner from "@/components/GuestBanner";
 
 export const metadata = {
   title: {
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
       <body>
         <Preloader />
         <Navbar />
+        <GuestBanner />
         <main>{children}</main>
         <Footer />
       </body>

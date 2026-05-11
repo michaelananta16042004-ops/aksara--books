@@ -179,6 +179,145 @@
   background: var(--ink);
 }
 
+/* Guest Wall */
+.guestWall {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--blush-light) 100%);
+}
+
+.guestBox {
+  background: white;
+  border-radius: 24px;
+  padding: 56px 48px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 24px 64px var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.guestIcon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.guestBox h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.guestBox p {
+  font-size: 15px;
+  color: var(--brown-light);
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+.guestActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.loginBtn {
+  padding: 13px 28px;
+  background: var(--brown);
+  color: white;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background var(--transition), transform 0.2s;
+  display: inline-block;
+}
+
+.loginBtn:hover {
+  background: var(--ink);
+  transform: translateY(-2px);
+}
+
+.registerBtn {
+  padding: 13px 28px;
+  background: transparent;
+  color: var(--brown);
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  border: 2px solid var(--border);
+  transition: all var(--transition);
+  display: inline-block;
+}
+
+.registerBtn:hover {
+  border-color: var(--brown);
+  background: var(--blush-light);
+}
+
+.continueGuest {
+  font-size: 13px;
+  color: var(--brown-light);
+  font-weight: 500;
+  transition: color var(--transition);
+  margin-top: 4px;
+}
+
+.continueGuest:hover {
+  color: var(--amber);
+}
+
+/* User Greeting */
+.userGreeting {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.greetAvatar {
+  width: 46px;
+  height: 46px;
+  background: var(--brown);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.greetHi {
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.greetHi strong {
+  color: var(--brown);
+}
+
+.greetSub {
+  font-size: 13px;
+  color: var(--brown-light);
+  margin-top: 2px;
+}
+
 /* Success */
 .successPage {
   min-height: calc(100vh - 68px);

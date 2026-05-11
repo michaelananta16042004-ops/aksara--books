@@ -1,0 +1,365 @@
+.page {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--blush-light) 100%);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px var(--shadow-lg);
+}
+
+/* Side Panel */
+.sidePanel {
+  background: var(--brown);
+  padding: 56px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidePanelInner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sideLogo {
+  width: 56px;
+  height: 56px;
+  background: var(--amber);
+  color: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.sideTitle {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+.sideDesc {
+  font-size: 15px;
+  color: var(--blush);
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.sideQuote {
+  background: rgba(255,255,255,0.08);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+}
+
+.sideQuote p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--blush-light);
+  line-height: 1.6;
+}
+
+.sideBooks {
+  font-size: 13px;
+  color: var(--blush);
+  opacity: 0.7;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Form Panel */
+.formPanel {
+  background: white;
+  padding: 56px 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formTitle {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.formSubtitle {
+  font-size: 14px;
+  color: var(--brown-light);
+}
+
+.link {
+  color: var(--amber);
+  font-weight: 600;
+  transition: color var(--transition);
+}
+
+.link:hover {
+  color: var(--brown);
+}
+
+/* Alert */
+.alertInfo {
+  background: #eff6ff;
+  border: 1px solid #93c5fd;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #1d4ed8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alertError {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.labelRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forgotLink {
+  font-size: 13px;
+  color: var(--amber);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.forgotLink:hover {
+  color: var(--brown);
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--cream);
+  transition: border-color var(--transition), box-shadow var(--transition);
+  overflow: hidden;
+}
+
+.inputWrap:focus-within {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 4px rgba(212, 124, 15, 0.1);
+  background: white;
+}
+
+.inputWrap.inputError {
+  border-color: #f87171;
+}
+
+.inputIcon {
+  margin-left: 14px;
+  color: var(--brown-light);
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  padding: 13px 14px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--brown-light);
+  opacity: 0.5;
+}
+
+.togglePass {
+  background: none;
+  border: none;
+  padding: 0 14px;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--brown-light);
+  transition: color var(--transition);
+}
+
+.togglePass:hover {
+  color: var(--brown);
+}
+
+.errorMsg {
+  font-size: 12px;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.errorMsg::before {
+  content: "⚠";
+  font-size: 11px;
+}
+
+/* Submit Button */
+.submitBtn {
+  padding: 15px;
+  background: var(--brown);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transition), transform 0.2s;
+  margin-top: 4px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--ink);
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btnLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--brown-light);
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Guest */
+.guestNote {
+  text-align: center;
+}
+
+.guestBtn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brown);
+  transition: all var(--transition);
+  width: 100%;
+  text-align: center;
+}
+
+.guestBtn:hover {
+  border-color: var(--brown);
+  background: var(--blush-light);
+}
+
+.guestWarning {
+  font-size: 12px;
+  color: var(--brown-light);
+  opacity: 0.7;
+  text-align: center;
+  margin-top: 6px;
+}
+
+@media (max-width: 700px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .sidePanel {
+    padding: 32px 28px;
+  }
+
+  .sideQuote,
+  .sideBooks {
+    display: none;
+  }
+
+  .formPanel {
+    padding: 36px 28px;
+  }
+}

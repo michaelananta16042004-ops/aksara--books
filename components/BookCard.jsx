@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./BookCard.module.css";
 
 function formatPrice(price) {
@@ -12,11 +13,22 @@ function formatPrice(price) {
 }
 
 export default function BookCard({ book }) {
+  const router = useRouter();
   const [added, setAdded] = useState(false);
+
+  const isLoggedIn = () => {
+    if (typeof window === "undefined") return false;
+    return !!localStorage.getItem("aksara_session");
+  };
 
   const addToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
+
+    if (!isLoggedIn()) {
+      router.push("/login?from=katalog&reason=cart");
+      return;
+    }
 
     const cart = JSON.parse(localStorage.getItem("aksara_cart") || "[]");
     const idx = cart.findIndex((i) => i.id === book.id);

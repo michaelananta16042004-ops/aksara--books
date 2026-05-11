@@ -7,11 +7,10 @@ export const metadata = {
 
 export default function TentangPage() {
   const team = [
-    { name: "Diventranus Lei", role: "Founder & CEO", emoji: "👦" },
-    { name: "Samuel Sembiring", role: "Head of Curation", emoji: "👦" },
-    { name: "Bastanta remana", role: "Tech Lead", emoji: "👨‍🏫" },
-    { name: "Maikhel Ananta Ginting", role: "Customer Experience", emoji: "🤝" },
-     { name: "Marsaulina", role: "Writer", emoji: "👩‍💼" },
+    { name: "Anisa Rahmawati", role: "Founder & CEO", emoji: "👩‍💼" },
+    { name: "Budi Santoso", role: "Head of Curation", emoji: "📚" },
+    { name: "Clara Wijaya", role: "Tech Lead", emoji: "👩‍💻" },
+    { name: "Dika Pratama", role: "Customer Experience", emoji: "🤝" },
   ];
 
   const values = [
@@ -85,7 +84,7 @@ export default function TentangPage() {
         <blockquote className={styles.quote}>
           &ldquo;Setiap buku yang sampai ke tangan pembaca adalah langkah kecil menuju dunia yang lebih bijaksana.&rdquo;
         </blockquote>
-        <p className={styles.quoteBy}>— Diventranus Lei, Founder Aksara Books</p>
+        <p className={styles.quoteBy}>— Anisa Rahmawati, Founder Aksara Books</p>
       </section>
     </div>
   );
