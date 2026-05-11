@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "moduleResolution": "Bundler",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "ignoreDeprecations": "6.0"
   }
 }

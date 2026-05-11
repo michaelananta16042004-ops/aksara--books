@@ -7,10 +7,11 @@ export const metadata = {
 
 export default function TentangPage() {
   const team = [
-    { name: "Anisa Rahmawati", role: "Founder & CEO", emoji: "👩‍💼" },
-    { name: "Budi Santoso", role: "Head of Curation", emoji: "📚" },
-    { name: "Clara Wijaya", role: "Tech Lead", emoji: "👩‍💻" },
-    { name: "Dika Pratama", role: "Customer Experience", emoji: "🤝" },
+    { name: "Diventranus Lei", role: "Founder & CEO", emoji: "👩‍💼" },
+    { name: "Samuel Sembiring", role: "Head of Curation", emoji: "📚" },
+    { name: "Bastanta Remana Sinulingga", role: "Tech Lead", emoji: "👩‍💻" },
+    { name: "Michael Ananta Ginting", role: "Customer Experience", emoji: "🤝" },
+    { name: "Marsaulina Lumbantoruan", role: "Customer Experience", emoji: "🤝" },
   ];
 
   const values = [
