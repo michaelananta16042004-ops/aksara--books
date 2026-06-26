@@ -1,24 +1,35 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import BookCard from "@/components/BookCard";
 import SearchBar from "@/components/SearchBar";
 import GenreFilter from "@/components/GenreFilter";
-import books from "@/data/books";
-import categories from "@/data/categories";
+import { getBooks, getCategories } from "@/utils/api";
 import styles from "./page.module.css";
 
 export default function KatalogPage() {
   const [search, setSearch] = useState("");
   const [genre, setGenre] = useState("semua");
   const [sort, setSort] = useState("default");
+  
+  const [books, setBooks] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const fetchedBooks = await getBooks(genre);
+      const fetchedCategories = await getCategories();
+      setBooks(fetchedBooks);
+      // Ensure 'Semua' is at the beginning of categories
+      setCategories([{ id: "semua", name: "semua", label: "Semua", icon: "📚" }, ...fetchedCategories]);
+      setLoading(false);
+    };
+    fetchData();
+  }, [genre]);
 
   const filtered = useMemo(() => {
     let result = [...books];
-
-    // Filter genre
-    if (genre !== "semua") {
-      result = result.filter((b) => b.genre === genre);
-    }
 
     // Search realtime
     if (search.trim()) {
@@ -27,7 +38,7 @@ export default function KatalogPage() {
         (b) =>
           b.title.toLowerCase().includes(q) ||
           b.author.toLowerCase().includes(q) ||
-          b.genre.toLowerCase().includes(q)
+          (b.category && b.category.name.toLowerCase().includes(q))
       );
     }
 
@@ -38,7 +49,7 @@ export default function KatalogPage() {
     else if (sort === "title") result.sort((a, b) => a.title.localeCompare(b.title));
 
     return result;
-  }, [search, genre, sort]);
+  }, [search, books, sort]);
 
   return (
     <div className={styles.page}>

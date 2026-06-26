@@ -208,25 +208,7 @@ const books = [
     stock: 16,
     badge: "Baru",
   },
-  {
-    id: 12,
-    title: "1984",
-    author: "George Orwell",
-    price: 75000,
-    originalPrice: 95000,
-    genre: "Fiksi Ilmiah",
-    cover: "https://images.unsplash.com/photo-1476275466078-4cdc63ac6384?w=400&h=560&fit=crop",
-    rating: 4.8,
-    reviews: 3102,
-    description:
-      "Distopia legendaris tentang masyarakat totaliter yang dikontrol oleh Big Brother. Karya visioner Orwell yang terasa semakin relevan di era pengawasan digital.",
-    pages: 328,
-    publisher: "Bentang Belia",
-    year: 1949,
-    isbn: "978-979-1227-92-1",
-    stock: 11,
-    badge: "Klasik",
-  },
+
 ];
 
 export default books;
